@@ -11,11 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * An implementation of PDFToImgConverter that uses the PDFBox library from Apache.
+ *
  * Created by mcorey on 9/4/14.
  */
 public class PDFBoxConverter implements PDFToImgConverter {
     @Override
     public List<BufferedImage> convertToImage(InputStream pdfStream) {
+        if (pdfStream == null) {
+            throw new IllegalArgumentException("Null parameter was passed into converter.");
+        }
+        try {
+            if (pdfStream.available() == 0) {
+                throw new IllegalArgumentException("Empty stream was passed into converter.");
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Unable to read from input stream", e);
+        }
+
         PDDocument doc1 = getDoc(pdfStream);
 
         List<BufferedImage> ret = new ArrayList<BufferedImage>();
