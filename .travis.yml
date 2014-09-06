@@ -2,7 +2,7 @@ language: java
 jdk:
   - oraclejdk7
 
-script: ./gradlew build --debug --stacktrace
+script: ./gradlew build --info --stacktrace
 
 before_install:
   - sudo apt-get update -qq
