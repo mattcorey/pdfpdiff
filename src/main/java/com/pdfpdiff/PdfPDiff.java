@@ -10,8 +10,8 @@ import java.io.*;
 import java.util.List;
 
 /**
- * Simple implementation of a PDF comparison -- this class first converts two PDF's to images, and then does a pixel
- * by pixel comparison of the images to tell whether they are equal.
+ * The basic entry point into the Pdf PDiff system, this class provides a few basic methods to interact the library in
+ * a simple manner.
  *
  * Created by mcorey on 8/28/14.
  */
@@ -24,7 +24,7 @@ public class PdfPDiff {
         List<BufferedImage> imgList2 = converter.convertToImage(pdfStream2);
 
         //If they have a different number of pages, bail
-        if(imgList1.size() != imgList2.size()) {
+        if (imgList1.size() != imgList2.size()) {
             return new ComparisonResults(false);
         }
 
@@ -32,13 +32,13 @@ public class PdfPDiff {
         int cnt = 0;
         ComparisonResults results = new ComparisonResults(true);
 
-        for(BufferedImage img1: imgList1) {
+        for (BufferedImage img1: imgList1) {
 
 
             BufferedImage img2 = imgList2.get(cnt);
 
-            if(!differ.doImagesMatch(img1, img2)) {
-                if(results.pdfsMatch()) {
+            if (!differ.doImagesMatch(img1, img2)) {
+                if (results.pdfsMatch()) {
                     results = new ComparisonResults(false);
                 }
 

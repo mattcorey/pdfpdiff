@@ -20,7 +20,7 @@ public class PDFBoxConverter implements PDFToImgConverter {
 
         List<BufferedImage> ret = new ArrayList<BufferedImage>();
 
-        for (PDPage page: (List<PDPage>)doc1.getDocumentCatalog().getAllPages()) {
+        for (PDPage page: (List<PDPage>) doc1.getDocumentCatalog().getAllPages()) {
             try {
                 ret.add(page.convertToImage());
             } catch (IOException e) {
