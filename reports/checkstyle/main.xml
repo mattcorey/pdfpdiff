@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.7">
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/ComparisonResults.java">
+</file>
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/PdfPDiff.java">
+</file>
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/conversion/PDFToImgConverter.java">
+</file>
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/conversion/impl/PDFBoxConverter.java">
+</file>
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/diff/ImgDiff.java">
+</file>
+<file name="/home/travis/build/mattcorey/pdfpdiff/src/main/java/com/pdfpdiff/diff/impl/BasicImgDiffImpl.java">
+</file>
+</checkstyle>
