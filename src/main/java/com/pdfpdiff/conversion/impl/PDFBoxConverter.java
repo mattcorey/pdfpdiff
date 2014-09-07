@@ -54,7 +54,7 @@ public class PDFBoxConverter implements PDFToImgConverter {
         try {
             return PDDocument.load(pdfStream);
         } catch (IOException e) {
-            throw new IllegalStateException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 }
