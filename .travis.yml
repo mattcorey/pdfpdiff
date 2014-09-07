@@ -1,9 +1,16 @@
 language: java
+
 jdk:
-  - oraclejdk7
+- oraclejdk7
 
 script: ./gradlew build --debug --stacktrace
 
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq fonts-liberation
+- sudo apt-get update -qq
+- sudo apt-get install -qq fonts-liberation
+
+after_success: ./update-gh-pages.sh
+
+env:
+  global:
+  - secure: P0EBa7dkTbtE6dqiu87VYiVbOYDQ/1ecKWPatiQCowoCExMiFIV7FaaFoqedL8qi6WAsPw2iCePVVUDllQDFOQH+yAvmeIYk9PeIRdzqasATgUdGBaqhBR3+5NfY2va9+vR1NxE8TJNpcj5vJQHnhSndnnGr6newDw15XeBMK68=
