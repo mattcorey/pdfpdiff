@@ -2,7 +2,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Starting to update gh-pages\n"
 
   #copy data we're interested in to other place
-  cp -R build/reports $HOME/reports
+  cp -R build/reports $HOME/build/reports
 
   #go to home and setup git
   cd $HOME
@@ -14,7 +14,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
   #go into diractory and copy data we're interested in to that directory
   cd gh-pages
-  cp -Rf $HOME/reports/* .
+  cp -Rf $HOME/build/* .
 
   #add, commit and push files
   git add -f .
