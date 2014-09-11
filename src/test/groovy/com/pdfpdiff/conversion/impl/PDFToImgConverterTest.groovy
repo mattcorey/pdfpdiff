@@ -1,6 +1,5 @@
 package com.pdfpdiff.conversion.impl
 
-import com.pdfpdiff.conversion.PDFToImgConverter
 import spock.lang.Specification
 
 import javax.imageio.ImageIO

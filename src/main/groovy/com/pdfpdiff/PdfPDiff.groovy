@@ -1,21 +1,17 @@
-package com.pdfpdiff;
+package com.pdfpdiff
 
-import com.pdfpdiff.conversion.PDFToImgConverter;
-import com.pdfpdiff.conversion.impl.PDFBoxConverter;
-import com.pdfpdiff.diff.ImgDiff;
-import com.pdfpdiff.diff.impl.BasicImgDiffImpl;
+import com.pdfpdiff.ComparisonResults
+import com.pdfpdiff.conversion.PDFToImgConverter
+import com.pdfpdiff.conversion.impl.PDFBoxConverter
+import com.pdfpdiff.diff.ImgDiff
+import com.pdfpdiff.diff.impl.BasicImgDiffImpl
 
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.List;
+import java.awt.image.BufferedImage
 
 /**
- * The basic entry point into the Pdf PDiff system, this class provides a few basic methods to interact the library in
- * a simple manner.
- *
- * Created by mcorey on 8/28/14.
+ * Created by mattcorey on 9/10/14.
  */
-public class PdfPDiff {
+class PdfPDiff {
     private PDFToImgConverter converter = new PDFBoxConverter();
     private ImgDiff differ = new BasicImgDiffImpl();
 
@@ -62,5 +58,4 @@ public class PdfPDiff {
 
         return results;
     }
-
 }

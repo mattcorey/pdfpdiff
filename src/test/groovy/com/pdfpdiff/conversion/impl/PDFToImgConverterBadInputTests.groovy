@@ -1,5 +1,7 @@
 package com.pdfpdiff.conversion.impl
 
+import org.apache.pdfbox.pdmodel.PDPage
+import spock.lang.Ignore
 import spock.lang.Specification
 
 /**
@@ -50,11 +52,30 @@ class PDFToImgConverterBadInputTests extends Specification {
             try {
                 new PDFBoxConverter().convertToImage(new BlowyUpyInputStream(false, true))
             } catch (RuntimeException e) {
-                println e
                 exc = e
             }
 
         then: "it throws a RuntimeException with the original exception Wrapped in it"
+            exc != null
+            exc.cause instanceof IOException
+    }
+
+    @Ignore("Don't work, because PDPage isn't a Groovy class")
+    def "when conversion blows up" () {
+        setup:
+            def anyPage = GroovyMock(PDPage, global: true)
+
+        when: "The PDFBox doc conversion throws an exception in the converter"
+            RuntimeException exc
+            try {
+                new PDFBoxConverter().convertToImage(this.class.classLoader.getResourceAsStream('simple-test/simple-test.pdf'))
+            } catch(RuntimeException e) {
+                exc = e
+            }
+
+        then: "it throws a RuntimeException with the original exception wrapped in it"
+            1 * anyPage.convertToImage(_) >> { throw new IOException("Here it is, baby")}
+
             exc != null
             exc.cause instanceof IOException
     }
