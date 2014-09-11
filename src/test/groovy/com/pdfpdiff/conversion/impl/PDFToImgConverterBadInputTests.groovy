@@ -29,4 +29,33 @@ class PDFToImgConverterBadInputTests extends Specification {
         then: "it throws an IllegalArgumentException"
             thrown(IllegalArgumentException)
     }
+
+    def "failing to read is bad when checking availability" () {
+        when: "An IOException is thrown while the converter is reading the stream"
+            RuntimeException exc
+            try {
+                new PDFBoxConverter().convertToImage(new BlowyUpyInputStream())
+            } catch (RuntimeException e) {
+                exc = e
+            }
+
+        then: "it throws a RuntimeException with the original exception Wrapped in it"
+            exc != null
+            exc.cause instanceof IOException
+    }
+
+    def "failing to read is bad when loading doc" () {
+        when: "An IOException is thrown while the converter is reading the stream"
+            RuntimeException exc
+            try {
+                new PDFBoxConverter().convertToImage(new BlowyUpyInputStream(false, true))
+            } catch (RuntimeException e) {
+                println e
+                exc = e
+            }
+
+        then: "it throws a RuntimeException with the original exception Wrapped in it"
+            exc != null
+            exc.cause instanceof IOException
+    }
 }

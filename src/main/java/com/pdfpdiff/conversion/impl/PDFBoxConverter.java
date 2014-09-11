@@ -26,7 +26,7 @@ public class PDFBoxConverter implements PDFToImgConverter {
                 throw new IllegalArgumentException("Empty stream was passed into converter.");
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to read from input stream", e);
+            throw new IllegalStateException("Unable to read from input stream", e);
         }
 
         PDDocument doc1 = getDoc(pdfStream);
