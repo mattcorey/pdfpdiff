@@ -1,6 +1,5 @@
 package com.pdfpdiff
 
-import com.pdfpdiff.ComparisonResults
 import com.pdfpdiff.conversion.PDFToImgConverter
 import com.pdfpdiff.conversion.impl.PDFBoxConverter
 import com.pdfpdiff.diff.ImgDiff
