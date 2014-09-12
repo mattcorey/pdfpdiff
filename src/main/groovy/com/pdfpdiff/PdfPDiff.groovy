@@ -31,7 +31,7 @@ class PdfPDiff {
 
             BufferedImage img2 = imgList2.get(cnt)
 
-            if (!differ.doImagesMatch(img1, img2)) {
+            if (!differ.compareImages(img1, img2)) {
                 if (results.pdfsMatch()) {
                     results = new ComparisonResults(false)
                 }

@@ -20,7 +20,7 @@ class BasicImgDiffImpl implements ImgDiff {
     private static final int ZERO = 0
 
     @Override
-    boolean doImagesMatch(BufferedImage img1, BufferedImage img2) {
+    boolean compareImages(BufferedImage img1, BufferedImage img2) {
         if (img1.width == img2.width && img1.height == img2.height) {
             for (int x = 0; x < img1.width; x++) {
                 for (int y = 0; y < img1.height; y++) {
