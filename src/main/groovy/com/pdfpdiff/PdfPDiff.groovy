@@ -2,8 +2,8 @@ package com.pdfpdiff
 
 import com.pdfpdiff.conversion.PDFToImgConverter
 import com.pdfpdiff.conversion.impl.PDFBoxConverter
-import com.pdfpdiff.diff.ImgDiff
-import com.pdfpdiff.diff.impl.BasicImgDiffImpl
+import com.pdfpdiff.diff.ImageComparer
+import com.pdfpdiff.diff.impl.BasicImageComparerImpl
 
 import java.awt.image.BufferedImage
 
@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage
  */
 class PdfPDiff {
     PDFToImgConverter converter = new PDFBoxConverter()
-    ImgDiff differ = new BasicImgDiffImpl()
+    ImageComparer differ = new BasicImageComparerImpl()
 
     ComparisonResults compare(InputStream pdfStream1, InputStream pdfStream2) {
         List<BufferedImage> imgList1 = converter.convertToImage(pdfStream1)

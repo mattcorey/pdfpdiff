@@ -1,6 +1,6 @@
 package com.pdfpdiff.diff
 
-import com.pdfpdiff.diff.impl.BasicImgDiffImpl
+import com.pdfpdiff.diff.impl.BasicImageComparerImpl
 import spock.lang.Specification
 
 import javax.imageio.ImageIO
@@ -13,7 +13,7 @@ class BasicImgDiffTest extends Specification {
         when: 'I pass in two images of different sizes'
             def img1 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/yay-big.jpg'))
             def img2 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
-            def results = new BasicImgDiffImpl().compareImages(img1, img2)
+            def results = new BasicImageComparerImpl().compareImages(img1, img2)
 
         then: 'they don\'t match'
             !results
@@ -23,7 +23,7 @@ class BasicImgDiffTest extends Specification {
         when: 'I pass in two different images of the same size'
             def img1 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/yay-little.jpg'))
             def img2 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
-            def results = new BasicImgDiffImpl().compareImages(img1, img2)
+            def results = new BasicImageComparerImpl().compareImages(img1, img2)
 
         then: 'they don\'t match'
             !results
@@ -33,7 +33,7 @@ class BasicImgDiffTest extends Specification {
         when: 'I pass in two different images of the same size'
         def img1 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/yay-skinny.jpg'))
         def img2 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
-        def results = new BasicImgDiffImpl().compareImages(img1, img2)
+        def results = new BasicImageComparerImpl().compareImages(img1, img2)
 
         then: 'they don\'t match'
         !results
@@ -43,7 +43,7 @@ class BasicImgDiffTest extends Specification {
         when: 'I pass in two different images of the same size'
         def img1 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/yay-short.jpg'))
         def img2 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
-        def results = new BasicImgDiffImpl().compareImages(img1, img2)
+        def results = new BasicImageComparerImpl().compareImages(img1, img2)
 
         then: 'they don\'t match'
         !results
@@ -52,7 +52,7 @@ class BasicImgDiffTest extends Specification {
     def 'The same image matches' () {
         when: 'I pass in the same exact image'
             def img = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
-            def results = new BasicImgDiffImpl().compareImages(img, img)
+            def results = new BasicImageComparerImpl().compareImages(img, img)
 
         then: 'it matches - whoot!'
             results == true
@@ -62,7 +62,7 @@ class BasicImgDiffTest extends Specification {
         when: 'I pass in copies of a same image'
             def img1 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay.jpg'))
             def img2 = ImageIO.read(this.class.classLoader.getResourceAsStream('diffs/okay-2.jpg'))
-            def results = new BasicImgDiffImpl().compareImages(img1, img2)
+            def results = new BasicImageComparerImpl().compareImages(img1, img2)
 
         then: 'it matches'
             results == true
