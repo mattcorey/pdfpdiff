@@ -20,10 +20,10 @@ class BasicImgDiffImpl implements ImgDiff {
     private static final int ZERO = 0
 
     @Override
-    public boolean doImagesMatch(BufferedImage img1, BufferedImage img2) {
-        if (img1.getWidth() == img2.getWidth() && img1.getHeight() == img2.getHeight()) {
-            for (int x = 0; x < img1.getWidth(); x++) {
-                for (int y = 0; y < img1.getHeight(); y++) {
+    boolean doImagesMatch(BufferedImage img1, BufferedImage img2) {
+        if (img1.width == img2.width && img1.height == img2.height) {
+            for (int x = 0; x < img1.width; x++) {
+                for (int y = 0; y < img1.height; y++) {
                     if (img1.getRGB(x, y) != img2.getRGB(x, y)) {
                         return false
                     }
@@ -37,20 +37,18 @@ class BasicImgDiffImpl implements ImgDiff {
     }
 
     @Override
-    public BufferedImage createImageDiff(BufferedImage img1, BufferedImage img2) {
-        if (img1.getWidth() != img2.getWidth()
-                || img1.getHeight() != img2.getHeight()) {
-            println("Images are different sizes, cannot produce visual diff")
-
-            return null;
+    BufferedImage produceImageDiff(BufferedImage img1, BufferedImage img2) {
+        if (img1.width != img2.width
+                || img1.height != img2.height) {
+            throw new IllegalArgumentException('Images are different sizes, cannot produce visual diff')
         }
 
-        BufferedImage img = new BufferedImage(img1.getWidth(),
-                img1.getHeight(),
-                img1.getType())
+        BufferedImage img = new BufferedImage(img1.width,
+                img1.height,
+                img1.type)
 
-        for (int y = 0; y < img1.getHeight(); ++y) {
-            for (int x = 0; x < img1.getWidth(); ++x) {
+        for (int y = 0; y < img1.height; ++y) {
+            for (int x = 0; x < img1.width; ++x) {
                 int pixelA = img1.getRGB(x, y)
                 int pixelB = img2.getRGB(x, y)
 

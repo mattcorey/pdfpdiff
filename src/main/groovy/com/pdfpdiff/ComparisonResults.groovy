@@ -7,5 +7,5 @@ import java.awt.image.BufferedImage
  */
 class ComparisonResults {
     private boolean match
-    private List<BufferedImage> diffs = []
+    private final List<BufferedImage> diffs = []
 }

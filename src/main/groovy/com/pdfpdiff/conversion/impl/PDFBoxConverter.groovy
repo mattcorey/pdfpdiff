@@ -11,16 +11,16 @@ import java.awt.image.BufferedImage
 class PDFBoxConverter implements PDFToImgConverter {
 
     @Override
-    public List<BufferedImage> convertToImage(InputStream pdfStream) {
+    List<BufferedImage> convertToImage(InputStream pdfStream) {
         if (pdfStream == null) {
-            throw new IllegalArgumentException("Null parameter was passed into converter.")
+            throw new IllegalArgumentException('Null parameter was passed into converter.')
         }
         try {
             if (pdfStream.available() == 0) {
-                throw new IllegalArgumentException("Empty stream was passed into converter.")
+                throw new IllegalArgumentException('Empty stream was passed into converter.')
             }
         } catch (IOException e) {
-            throw new IllegalStateException("Unable to read from input stream", e)
+            throw new IllegalStateException('Unable to read from input stream', e)
         }
 
         PDDocument doc1 = getDoc(pdfStream)
@@ -31,14 +31,14 @@ class PDFBoxConverter implements PDFToImgConverter {
             try {
                 ret << page.convertToImage()
             } catch (IOException e) {
-                throw new IllegalStateException("Unable to convert a page to an image", e)
+                throw new IllegalStateException('Unable to convert a page to an image', e)
             }
         }
 
         try {
             doc1.close()
         } catch (IOException e) {
-            throw new IllegalStateException("Error while closing PDF", e)
+            throw new IllegalStateException('Error while closing PDF', e)
         }
 
         ret

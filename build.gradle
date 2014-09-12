@@ -1,9 +1,10 @@
-apply plugin: 'java'
+//apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 
 apply plugin: 'cobertura'
-apply from: file("${rootDir}/gradle/checkstyle.gradle")
+//apply from: file("${rootDir}/gradle/checkstyle.gradle")
+apply plugin: 'codenarc'
 
 sourceCompatibility = 1.7
 version = '1.0'
@@ -26,4 +27,8 @@ dependencies {
     compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '1.8.6'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '0.7-groovy-2.0'
     testRuntime group: 'cglib', name: 'cglib-nodep', version: '3.1'
+}
+
+codenarcTest {
+    configFile = file("config/codenarc/codenarcTest.xml")
 }
