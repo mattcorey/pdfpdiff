@@ -1,38 +1,30 @@
 package com.pdfpdiff.diff.impl
 
-import java.awt.image.BufferedImage
-
 /**
  * Created by mattcorey on 9/11/14.
  */
 class GreyScaleDiffGeneratorStrategy implements DiffGeneratorStrategy {
+    private static final int BIT_MASK = 0x000000FF
+    private static final int RED = 0xFF000000
+
+    private static final double RED_WEIGHT = 0.299
+    private static final double GREEN_WEIGHT = 0.587
+    private static final double BLUE_WEIGHT = 0.114
+
+    private static final int BIT_SHIFT_32 = 32
+    private static final int BIT_SHIFT_16 = 16
+    private static final int BIT_SHIFT_8 = 8
+    private static final int ZERO = 0
 
     @Override
-    BufferedImage produceDiff(BufferedImage img1, BufferedImage img2) {
-        if (img1.width != img2.width
-                || img1.height != img2.height) {
-            throw new IllegalArgumentException('Images are different sizes, cannot produce visual diff')
+    int produceColor(int rgb1, int rgb2) {
+        def ret = RED
+
+        if (rgb1 == rgb2) {
+            convertToGrayscale(rgb1)
         }
 
-        BufferedImage img = new BufferedImage(img1.width,
-                img1.height,
-                img1.type)
-
-        for (int y = 0; y < img1.height; ++y) {
-            for (int x = 0; x < img1.width; ++x) {
-                int pixelA = img1.getRGB(x, y)
-                int pixelB = img2.getRGB(x, y)
-
-                int pixelMod = RED
-                if (pixelA == pixelB) {
-                    pixelMod = convertToGrayscale(pixelA)
-                }
-
-                img.setRGB(x, y, pixelMod)
-            }
-        }
-
-        img
+        ret
     }
 
     private int convertToGrayscale(int rgb) {
