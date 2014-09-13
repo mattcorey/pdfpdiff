@@ -1,6 +1,9 @@
 package com.pdfpdiff.diff.impl
 
 /**
+ * This Grey Scale conversion uses a luminosity-based algorithm to convert a pixel color to greyscale, found here:
+ * http://www.johndcook.com/blog/2009/08/24/algorithms-convert-color-grayscale/
+ *
  * Created by mattcorey on 9/11/14.
  */
 class GreyScaleDiffGeneratorStrategy implements DiffGeneratorStrategy {
