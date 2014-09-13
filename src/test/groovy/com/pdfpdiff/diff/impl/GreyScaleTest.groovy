@@ -20,9 +20,16 @@ class GreyScaleTest extends Specification {
             new GreyScaleDiffGeneratorStrategy().produceColor(intColor1, intColor2) == intExpected
 
         where:
-            color1     | color2     | expectedColor
+            color1       | color2       | expectedColor
             '0x00000000' | '0x00000000' | '0x00000000'
             '0x00FFFFFF' | '0x00FFFFFF' | '0x00FDFDFD'
+            '0x00004E00' | '0x00004E00' | '0x00383838'
+            '0x007FBA80' | '0x007FBA80' | '0x00A7A7A7'
+            '0x000762B0' | '0x000762B0' | '0x00535353'
             '0x00FFFFFF' | '0x00000000' | '0x00FF0000'
+            '0x00FFFFFF' | '0x00067500' | '0x00FF0000'
+            '0x00FFFFFF' | '0x00004E00' | '0x00FF0000'
+            '0x00FFFFFF' | '0x007FBA80' | '0x00FF0000'
+            '0x00FFFFFF' | '0x000762B0' | '0x00FF0000'
     }
 }
