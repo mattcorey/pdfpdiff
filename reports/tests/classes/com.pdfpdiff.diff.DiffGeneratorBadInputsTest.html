@@ -2,17 +2,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Test results - Class com.pdfpdiff.diff.BasicImgDiffTest</title>
+<title>Test results - Class com.pdfpdiff.diff.DiffGeneratorBadInputsTest</title>
 <link href="css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
 <script src="js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class com.pdfpdiff.diff.BasicImgDiffTest</h1>
+<h1>Class com.pdfpdiff.diff.DiffGeneratorBadInputsTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/com.pdfpdiff.diff.html">com.pdfpdiff.diff</a> &gt; BasicImgDiffTest</div>
+<a href="../packages/com.pdfpdiff.diff.html">com.pdfpdiff.diff</a> &gt; DiffGeneratorBadInputsTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -40,7 +40,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.589s</div>
+<div class="counter">0.672s</div>
 <p>duration</p>
 </div>
 </td>
@@ -74,33 +74,33 @@
 </tr>
 </thead>
 <tr>
-<td class="success">Comparing two different images of the same width also don't match</td>
-<td>0.095s</td>
+<td class="success">A null DiffType bombs, too</td>
+<td>0.051s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Comparing two different imges of the same height also don't match</td>
-<td>0.039s</td>
+<td class="success">Any combination of null images bomb[0]</td>
+<td>0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Comparing two different imges of the same size also don't match</td>
-<td>0.084s</td>
+<td class="success">Any combination of null images bomb[1]</td>
+<td>0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Copies of the same image matches</td>
-<td>0.046s</td>
+<td class="success">Any combination of null images bomb[2]</td>
+<td>0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Passing in images of different sizes don't match</td>
-<td>0.060s</td>
+<td class="success">Images of different heights bomb</td>
+<td>0.085s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">The same image matches</td>
-<td>0.265s</td>
+<td class="success">Images of different widths bomb</td>
+<td>0.525s</td>
 <td class="success">passed</td>
 </tr>
 </table>
