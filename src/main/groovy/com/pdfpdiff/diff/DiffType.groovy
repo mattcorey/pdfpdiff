@@ -9,8 +9,8 @@ import com.pdfpdiff.diff.impl.SingleColorOnMatchDiffGeneratorStrategy
  */
 enum DiffType {
     RED_OVER_GREY_SCALE (new GreyScaleDiffGeneratorStrategy()),
-    RED_OVER_WHITE (new SingleColorOnMatchDiffGeneratorStrategy(0x00FFFFFF)),
-    RED_OVER_BLACK (new SingleColorOnMatchDiffGeneratorStrategy(0x00000000))
+    RED_OVER_WHITE (new SingleColorOnMatchDiffGeneratorStrategy(0xFFFFFF)),
+    RED_OVER_BLACK (new SingleColorOnMatchDiffGeneratorStrategy(0x000000))
 
     private final DiffGeneratorStrategy strategy
 
