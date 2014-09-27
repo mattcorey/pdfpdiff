@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage
 class PDFBoxConverter implements PDFToImgConverter {
 
     @Override
+    @SuppressWarnings('EmptyCatchBlock')
     List<BufferedImage> convertToImage(InputStream pdfStream) {
         if (pdfStream == null) {
             throw new IllegalArgumentException('Null parameter was passed into converter.')
@@ -38,7 +39,7 @@ class PDFBoxConverter implements PDFToImgConverter {
         try {
             doc1.close()
         } catch (IOException e) {
-            throw new IllegalStateException('Error while closing PDF', e)
+            //Not gonna worry about this one.
         }
 
         ret
