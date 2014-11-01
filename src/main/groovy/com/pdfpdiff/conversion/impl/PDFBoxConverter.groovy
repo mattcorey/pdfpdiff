@@ -1,6 +1,7 @@
 package com.pdfpdiff.conversion.impl
 
 import com.pdfpdiff.conversion.PDFToImgConverter
+import org.apache.pdfbox.io.RandomAccessBuffer
 import org.apache.pdfbox.pdmodel.PDDocument
 
 import java.awt.image.BufferedImage
@@ -47,7 +48,7 @@ class PDFBoxConverter implements PDFToImgConverter {
 
     private PDDocument getDoc(InputStream pdfStream) {
         try {
-            return PDDocument.load(pdfStream)
+            return PDDocument.load(pdfStream, new RandomAccessBuffer())
         } catch (IOException e) {
             throw new IllegalArgumentException(e)
         }
